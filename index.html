@@ -8,17 +8,18 @@
     <style>
         @keyframes pixelatedFade {
             0% {
-                filter: contrast(200%) brightness(200%) opacity(1);
-            }
-            50% {
-                filter: contrast(50%) brightness(50%) opacity(0.5);
+                filter: contrast(200%) brightness(200%) opacity(0.5);
             }
             100% {
                 filter: contrast(0%) brightness(0%) opacity(0);
             }
         }
-        .pixelated-hover:hover {
-            animation: pixelatedFade 0.5s forwards;
+        .pixelated-hover {
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .pixelated-hover:hover, .pixelated-hover:active {
+            opacity: 0;
         }
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -35,10 +36,10 @@
         <h1 class="text-4xl font-bold mb-6">Welcome to Our Landing Page</h1>
         <p class="text-lg text-gray-600 mb-8">Choose an action below:</p>
         <div class="grid grid-cols-2 gap-4 button-container">
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:bg-transparent hover:border hover:border-purple-500 pixelated-hover">Action 1</button>
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:bg-transparent hover:border hover:border-purple-500 pixelated-hover">Action 2</button>
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:bg-transparent hover:border hover:border-purple-500 pixelated-hover">Action 3</button>
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:bg-transparent hover:border hover:border-purple-500 pixelated-hover">Action 4</button>
+            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 1</button>
+            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 2</button>
+            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 3</button>
+            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 4</button>
         </div>
     </div>
 </body>
