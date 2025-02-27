@@ -1,45 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Linktree</title>
     <style>
-        @keyframes pixelatedFade {
-            100% {
-                filter: contrast(50%) brightness(50%) opacity(0.2);
-            }
-            50% {
-                filter: contrast(200%) brightness(200%) opacity(0.5);
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        .pixelated-hover {
-            opacity: 0.5;
-            transition: opacity 0.3s;
+        body {
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 20px;
         }
-        .pixelated-hover:hover, .pixelated-hover:active {
-            opacity: 1;
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .button-container {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
+        .profile img {
+            width: 100px;
+            border-radius: 50%;
+        }
+        .profile h1 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .links a {
+            display: block;
+            text-decoration: none;
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .links a:hover {
+            background: #2980b9;
         }
     </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="text-center">
-        <h1 class="text-4xl font-bold mb-6">Welcome to Our Landing Page</h1>
-        <p class="text-lg text-gray-600 mb-8">Choose an action below:</p>
-        <div class="grid grid-cols-2 gap-4 button-container">
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 1</button>
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 2</button>
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 3</button>
-            <button class="px-6 py-3 bg-purple-500 text-white rounded-lg shadow-md hover:border hover:border-purple-500 pixelated-hover">Action 4</button>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+            <h1>Nama Anda</h1>
+            <p>@username</p>
+        </div>
+        <div class="links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">YouTube</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Website</a>
         </div>
     </div>
 </body>
