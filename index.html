@@ -439,11 +439,6 @@
     flex: 1;
   }
 
-  /* Station URL input */
-  .url-section {
-    margin-bottom: 24px;
-  }
-
   .section-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -452,45 +447,6 @@
     text-transform: uppercase;
     margin-bottom: 10px;
   }
-
-  .url-input-wrap {
-    display: flex;
-    gap: 8px;
-  }
-
-  .url-input {
-    flex: 1;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .url-input:focus {
-    border-color: rgba(232,255,60,0.4);
-  }
-
-  .url-input::placeholder { color: var(--muted); }
-
-  .apply-btn {
-    background: var(--accent);
-    border: none;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #0a0a0f;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .apply-btn:hover { opacity: 0.85; }
 
   /* Preset stations */
   .stations-list {
@@ -611,14 +567,6 @@
     </button>
   </div>
   <div class="panel-body">
-    <div class="url-section">
-      <p class="section-label">URL Shoutcast</p>
-      <div class="url-input-wrap">
-        <input type="text" class="url-input" id="customUrl" placeholder="http://stream.example.com:8000/stream" />
-        <button class="apply-btn" id="applyUrl">Terapkan</button>
-      </div>
-    </div>
-
     <p class="section-label">Preset Stasiun</p>
     <div class="stations-list" id="stationsList">
       <!-- populated by JS -->
@@ -704,7 +652,7 @@
 
 <script>
 const stations = [
-  { name: 'Ramu FM', genre: 'Pop / Hits', bitrate: '128 kbps', url: 'https://i.klikhost.com/8100/stream' },
+  { name: 'Ramu FM', genre: 'Pop / Hits', bitrate: '128 kbps', url: 'https://i.klikhost.com/8100/streams' },
 ];
 
 let isPlaying = false;
@@ -858,23 +806,6 @@ volSlider.addEventListener('input', () => {
   const v = parseInt(volSlider.value);
   audio.volume = v / 100;
   volDisplay.textContent = v + '%';
-});
-
-// Custom URL
-document.getElementById('applyUrl').addEventListener('click', () => {
-  const url = document.getElementById('customUrl').value.trim();
-  if (!url) return;
-  const custom = { name: 'Custom Stream', genre: 'Shoutcast', bitrate: '— kbps', url };
-  currentStation = custom;
-  currentIndex = -1;
-  updateStationUI(-1);
-  stationDisplayName.textContent = 'Custom Stream';
-  npTitle.textContent = 'Custom Shoutcast';
-  npArtist.textContent = url;
-  infoStatus.textContent = 'MEMUAT';
-  audio.src = url;
-  startPlay();
-  closePanel();
 });
 
 // Panel logic
